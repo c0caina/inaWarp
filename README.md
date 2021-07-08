@@ -1,13 +1,17 @@
-# Template
-This repository is a GitHub Template which may be used to create Dragonfly servers.
+# inaWarp
+Warp system for [Dragonfly](https://github.com/df-mc/dragonfly "Source code")
 
-## Usage
-See this [GitHub page](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template)
-on how to set up a new GitHub repository using this template.
+# Commands
+| Command | Sub command     | Description                                                   |
+| :------ | :-------------- | :-----------------------------------------------------------  |
+| /warp   | set [Name warp] | Creates a teleportation point relative to your location.      |
+| /warp   | del [Name warp] | Removes teleportation point.                                  |
+| /warp   | tp  [Name warp] | Teleports you to a specific point.                            |
+| /warp   | list            | Displays information about all registered points in the chat. |
 
-## Contributing
-We use JetBrains Space to manage our issues, pull requests and code reviews, but we welcome contributions
-through GitHub issues and pull requests.
+# Usage
+### Import package
+```import "github.com/c0caina/inaWarp"```
 
-## Contact
-[![Chat on Discord](https://img.shields.io/badge/Chat-On%20Discord-738BD7.svg?style=for-the-badge)](https://discord.gg/evzQR4R)
+### LoadPlugin
+Insert the `inaWarp.Run()` into the main file after initializing the server.
