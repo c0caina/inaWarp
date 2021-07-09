@@ -11,12 +11,6 @@ type WarpTp struct {
 	Name string
 }
 
-type tp string
-
-func (s tp) SubName() string {
-	return "tp"
-}
-
 func (wt WarpTp) Run(source cmd.Source, output *cmd.Output) {
 	XYZ, err := repository.WarpRepo.SelectName(wt.Name)
 	if err != nil {
@@ -27,4 +21,10 @@ func (wt WarpTp) Run(source cmd.Source, output *cmd.Output) {
 	p, _ := source.(*player.Player)
 	p.Teleport(XYZ)
 	output.Printf("[inaWarp] You are transported warp %s.", wt.Name)
+}
+
+type tp string
+
+func (s tp) SubName() string {
+	return "tp"
 }
