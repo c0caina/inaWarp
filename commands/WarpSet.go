@@ -1,7 +1,7 @@
 package commands
 
 import (
-	"github.com/c0caina/inaWarp/repository"
+	"github.com/c0caina/inaWarp/global"
 	"github.com/c0caina/inaWarp/repository/models"
 	"github.com/df-mc/dragonfly/server/cmd"
 )
@@ -12,7 +12,7 @@ type WarpSet struct {
 }
 
 func (ws WarpSet) Run(source cmd.Source, output *cmd.Output) {
-	err := repository.WarpRepo.Insert(models.Warp{Name: ws.Name, XYZ: source.Position()})
+	err := global.WarpSqlite.Insert(models.Warp{Name: ws.Name, XYZ: source.Position()})
 	if err != nil {
 		output.Errorf("[inaWarp] %v", err)
 		return

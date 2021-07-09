@@ -1,7 +1,7 @@
 package commands
 
 import (
-	"github.com/c0caina/inaWarp/repository"
+	"github.com/c0caina/inaWarp/global"
 	"github.com/df-mc/dragonfly/server/cmd"
 )
 
@@ -11,7 +11,7 @@ type WarpDel struct {
 }
 
 func (wd WarpDel) Run(source cmd.Source, output *cmd.Output) {
-	err := repository.WarpRepo.Delete(wd.Name)
+	err := global.WarpSqlite.Delete(wd.Name)
 	if err != nil {
 		output.Errorf("[inaWarp] %v", err)
 		return

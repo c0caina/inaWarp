@@ -1,7 +1,7 @@
 package commands
 
 import (
-	"github.com/c0caina/inaWarp/repository"
+	"github.com/c0caina/inaWarp/global"
 	"github.com/df-mc/dragonfly/server/cmd"
 )
 
@@ -10,7 +10,7 @@ type WarpList struct {
 }
 
 func (wl WarpList) Run(source cmd.Source, output *cmd.Output) {
-	warps, err := repository.WarpRepo.SelectAll()
+	warps, err := global.WarpSqlite.SelectAll()
 	if err != nil {
 		output.Errorf("[inaWarp] %v", err)
 		return

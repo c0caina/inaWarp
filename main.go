@@ -4,6 +4,7 @@ import (
 	"embed"
 	"fmt"
 	"github.com/c0caina/inaWarp/commands"
+	"github.com/c0caina/inaWarp/global"
 	"github.com/c0caina/inaWarp/repository"
 	"github.com/df-mc/dragonfly/server"
 	"github.com/df-mc/dragonfly/server/cmd"
@@ -45,7 +46,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("[inaWarp] %v", err)
 	}
-	repository.WarpRepo = repository.NewWarpSqlite(db)
+	global.WarpSqlite = repository.NewWarpSqlite(db)
 
 	cmd.Register(cmd.New("warp", "Warp system control.", []string{}, commands.WarpSet{}, commands.WarpDel{}, commands.WarpTp{}, commands.WarpList{}))
 
